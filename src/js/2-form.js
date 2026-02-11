@@ -13,12 +13,13 @@ formData.email = parsedFormData.email || "";
   
   form.email.value = formData.email;
   form.message.value = formData.message;
+  
 }
 
 form.addEventListener("input", textInput);
 
 function textInput(event) {
-  formData[event.target.name] = event.target.value.trim();
+  formData[event.target.name] = event.target.value;
 
   localStorage.setItem(STORAGE_KEY, JSON.stringify(formData));
 
@@ -29,7 +30,7 @@ form.addEventListener("submit", submitForm);
 
 function submitForm(event) {
   event.preventDefault();
-if (formData.email === "" || formData.message === "") {
+if (formData.email.trim() === "" || formData.message.trim() === "") {
     alert("Fill please all fields");
     return;
   }
