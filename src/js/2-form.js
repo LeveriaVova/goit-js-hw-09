@@ -22,7 +22,7 @@ function textInput(event) {
 
   localStorage.setItem(STORAGE_KEY, JSON.stringify(formData));
 
-  console.log(formData);
+  
 }
 
 form.addEventListener("submit", submitForm);
@@ -34,5 +34,7 @@ if (formData.email === "" || formData.message === "") {
     return;
   }
   console.log(formData);
+  formData.email = "";
+  formData.message = "";
 event.currentTarget.reset();
   localStorage.removeItem(STORAGE_KEY);}
